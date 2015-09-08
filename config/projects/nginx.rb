@@ -14,7 +14,7 @@ MYUSERNAME = ENV['LOGNAME']
 package_user  "#{MYUSERNAME}"
 package_group "#{MYUSERNAME}"
 
-install_dir "/home/#{MYUSERNAME}/software"
+install_dir "#{ENV['HOME']}/software"
 
 exclude "**/.git"
 exclude "**/bundler/git"
