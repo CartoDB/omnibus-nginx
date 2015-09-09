@@ -2,7 +2,6 @@ name "nginx-http-shibboleth"
 default_version "master"
 
 dependency "shibboleth-sp"
-dependency "node-fastcgi"
 
 organization = "nginx-shib"
 
