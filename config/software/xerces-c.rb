@@ -11,7 +11,8 @@ relative_path "#{name}-#{version}"
 build do
 
   env = with_standard_compiler_flags(with_embedded_path).merge({
-         "LD_LIBRARY_PATH" => "#{install_dir}/embedded/lib"
+         "LD_LIBRARY_PATH" => "#{install_dir}/embedded/lib",
+         "LIBS" => "-liconv"
      })
 
   command "./configure" \
