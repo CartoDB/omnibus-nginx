@@ -14,7 +14,8 @@ MYUSERNAME = ENV['LOGNAME']
 package_user  "#{MYUSERNAME}"
 package_group "#{MYUSERNAME}"
 
-install_dir "#{ENV['HOME']}/software"
+package_root = ENV['OMNIBUS_PACKAGE_ROOT'] || '/bb/datavis'
+install_dir "#{package_root}/#{name}"
 
 exclude "**/.git"
 exclude "**/bundler/git"

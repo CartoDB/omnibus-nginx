@@ -1,7 +1,7 @@
 MYUSERNAME = ENV['LOGNAME']
 
 if MYUSERNAME == 'cartodb'
-  base_dir '/var/omnibus'
+  base_dir ENV['OMNIBUS_BASE_DIR'] || '/var/omnibus'
 else
   base_dir './local'
   cache_dir     './local/omnibus/cache'
