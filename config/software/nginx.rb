@@ -81,7 +81,7 @@ build do
           " --add-module=#{install_dir}/embedded/share/nginx/ngx_devel_kit" \
           " --add-module=#{install_dir}/embedded/share/nginx/set-misc-nginx-module" \
           " --with-cc-opt=\"-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -I#{install_dir}/embedded/include/libxml2\"" \
-          " --with-ld-opt=-L#{install_dir}/embedded/lib", env: env
+          " --with-ld-opt=-Wl,-rpath,#{install_dir}/embedded/lib", env: env
 
         make "-j #{workers}", env: env
         make "install", env: env
