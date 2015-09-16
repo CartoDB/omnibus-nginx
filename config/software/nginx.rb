@@ -36,8 +36,8 @@ relative_path "nginx-#{version}"
 
 build do
         env = with_standard_compiler_flags(with_embedded_path).merge(
-            "LUA_INC" => "#{install_dir}/embedded/include",
-            "LUA_LIB" => "#{install_dir}/embedded/lib",
+            "LUAJIT_INC" => "#{install_dir}/embedded/include/luajit-2.0",
+            "LUAJIT_LIB" => "#{install_dir}/embedded/lib",
             "PERL_PATH"  => "#{install_dir}/embedded/bin/perl"
         )
 
