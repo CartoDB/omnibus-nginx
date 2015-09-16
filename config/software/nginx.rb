@@ -15,8 +15,9 @@
 #
 
 name "nginx"
-default_version "1.4.4"
+default_version "1.9.4"
 
+dependency "libgd"
 dependency "pcre"
 dependency "openssl"
 dependency "nginx-http-shibboleth"
@@ -27,7 +28,7 @@ dependency "set-misc-nginx-module"
 dependency "libxslt"
 
 source url: "http://nginx.org/download/nginx-#{version}.tar.gz",
-    md5: "5dfaba1cbeae9087f3949860a02caa9f"
+    md5: "27322fbb4b265c0e0cc548f5e6b7f201"
 
 relative_path "nginx-#{version}"
 
@@ -73,7 +74,7 @@ build do
           " --add-module=#{install_dir}/embedded/share/nginx/lua-nginx-module" \
           " --add-module=#{install_dir}/embedded/share/nginx/ngx_devel_kit" \
           " --add-module=#{install_dir}/embedded/share/nginx/set-misc-nginx-module" \
-          " --with-cc-opt=\"-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include\"" \
+          " --with-cc-opt=\"-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -I#{install_dir}/embedded/include/libxml2\"" \
           " --with-ld-opt=-L#{install_dir}/embedded/lib", env: env
 
         make "-j #{workers}", env: env
