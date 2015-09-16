@@ -1,7 +1,7 @@
 name 'lua-nginx-module'
 default_version '0.9.16'
 
-dependency "lua"
+dependency "luajit"
 
 relative_path "#{name}-#{version}"
 

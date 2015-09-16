@@ -26,6 +26,8 @@ dependency "lua-nginx-module"
 dependency "ngx_devel_kit"
 dependency "set-misc-nginx-module"
 dependency "libxslt"
+dependency "perl"
+dependency "geoip"
 
 source url: "http://nginx.org/download/nginx-#{version}.tar.gz",
     md5: "27322fbb4b265c0e0cc548f5e6b7f201"
@@ -35,7 +37,8 @@ relative_path "nginx-#{version}"
 build do
         env = with_standard_compiler_flags(with_embedded_path).merge(
             "LUA_INC" => "#{install_dir}/embedded/include",
-            "LUA_LIB" => "#{install_dir}/embedded/lib"
+            "LUA_LIB" => "#{install_dir}/embedded/lib",
+            "PERL_PATH"  => "#{install_dir}/embedded/bin/perl"
         )
 
         command "./configure" \

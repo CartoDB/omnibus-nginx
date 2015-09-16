@@ -7,7 +7,11 @@ source url: "http://shibboleth.net/downloads/#{name}/#{version}/#{name}-#{versio
 relative_path "#{name}-#{version}"
 
 build do
+
+  env = with_standard_compiler_flags(with_embedded_path)
+
   command "./configure" \
-          " --prefix=#{install_dir}/embedded" 
-  make "install"
+          " --prefix=#{install_dir}/embedded"
+
+  make "install", env: env
 end
