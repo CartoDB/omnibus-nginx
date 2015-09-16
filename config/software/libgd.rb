@@ -15,7 +15,7 @@
 #
 
 name "libgd"
-default_version "2.1.0"
+default_version "2.1.1"
 
 dependency "libiconv"
 dependency "zlib"
@@ -23,7 +23,7 @@ dependency "libjpeg"
 dependency "libpng"
 
 # TODO: make sure that this is where we want to download libgd from
-source url: "http://fossies.org/linux/www/libgd-2.1.1.tar.gz",
+source url: "http://fossies.org/linux/www/#{name}-#{version}.tar.gz",
        md5: "20a8eeae51cef7d7850679b1e53ce2b5"
 
 relative_path "libgd-#{version}"
