@@ -14,11 +14,17 @@ dependency "opensaml"
 dependency "fcgi"
 
 build do
+
+  env = with_standard_compiler_flags(with_embedded_path)
+
   command "./configure" \
           " --prefix=#{install_dir}/embedded" \
           " --with-log4cpp=#{install_dir}/embedded"  \
           " --with-log4shib=#{install_dir}/embedded" \
           " --with-openssl=#{install_dir}/embedded"  \
           " --with-fastcgi=#{install_dir}/embedded"
-  make "install"
+
+  make "-j #{workers}", env: env
+  make "install", env: env
+
 end

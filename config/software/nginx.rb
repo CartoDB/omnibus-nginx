@@ -33,7 +33,10 @@ source url: "http://nginx.org/download/nginx-#{version}.tar.gz",
 relative_path "nginx-#{version}"
 
 build do
-        env = with_standard_compiler_flags(with_embedded_path)
+        env = with_standard_compiler_flags(with_embedded_path).merge(
+            "LUA_INC" => "#{install_dir}/embedded/include",
+            "LUA_LIB" => "#{install_dir}/embedded/lib"
+        )
 
         command "./configure" \
           " --prefix=#{install_dir}/embedded" \
