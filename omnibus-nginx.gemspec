@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.name        = "omnibus-nginx"
   s.version     = "1.0.0"
-  s.authors     = ['DataVis team']
+  s.authors     = ['Bloomberg DataVisualization team']
   s.summary     = %q{Omnibus Nginx web server project}
 
   s.files         = `git ls-files`.split("\n")

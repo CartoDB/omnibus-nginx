@@ -1,19 +1,3 @@
-#
-# Copyright 2012-2014 Chef Software, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-
 name "nginx"
 default_version "1.9.4"
 
@@ -71,17 +55,20 @@ build do
           " --with-mail_ssl_module" \
           " --with-file-aio" \
           " --with-ipv6" \
+          # If you dont want debugging remove this flag
+          " --with-debug" \
           " --with-http_perl_module" \
           " --with-http_image_filter_module" \
           " --with-http_geoip_module" \
           " --with-http_xslt_module" \
-          " --add-module=#{install_dir}/embedded/share/nginx/nginx-http-shibboleth" \
           " --add-module=#{install_dir}/embedded/share/nginx/headers-more-nginx-module" \
           " --add-module=#{install_dir}/embedded/share/nginx/lua-nginx-module" \
           " --add-module=#{install_dir}/embedded/share/nginx/ngx_devel_kit" \
           " --add-module=#{install_dir}/embedded/share/nginx/set-misc-nginx-module" \
+          #Above configs are all standard NGINX Plus product configuration. Below is non Plus module for Single Signon technology support.
+          " --add-module=#{install_dir}/embedded/share/nginx/nginx-http-shibboleth" \
           " --with-cc-opt=\"-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -I#{install_dir}/embedded/include/libxml2\"" \
-          " --with-ld-opt=-Wl,-rpath,#{install_dir}/embedded/lib", env: env
+          " --with-ld-opt=\"-L#{install_dir}/embedded/lib -Wl,-rpath,#{install_dir}/embedded/lib\"", env: env
 
         make "-j #{workers}", env: env
         make "install", env: env
