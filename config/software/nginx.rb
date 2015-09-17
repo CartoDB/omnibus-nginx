@@ -55,7 +55,6 @@ build do
           " --with-mail_ssl_module" \
           " --with-file-aio" \
           " --with-ipv6" \
-          # If you dont want debugging remove this flag
           " --with-debug" \
           " --with-http_perl_module" \
           " --with-http_image_filter_module" \
@@ -65,7 +64,6 @@ build do
           " --add-module=#{install_dir}/embedded/share/nginx/lua-nginx-module" \
           " --add-module=#{install_dir}/embedded/share/nginx/ngx_devel_kit" \
           " --add-module=#{install_dir}/embedded/share/nginx/set-misc-nginx-module" \
-          #Above configs are all standard NGINX Plus product configuration. Below is non Plus module for Single Signon technology support.
           " --add-module=#{install_dir}/embedded/share/nginx/nginx-http-shibboleth" \
           " --with-cc-opt=\"-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -I#{install_dir}/embedded/include/libxml2\"" \
           " --with-ld-opt=\"-L#{install_dir}/embedded/lib -Wl,-rpath,#{install_dir}/embedded/lib\"", env: env
