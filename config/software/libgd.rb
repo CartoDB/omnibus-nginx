@@ -7,8 +7,8 @@ dependency "libjpeg"
 dependency "libpng"
 
 # TODO: make sure that this is where we want to download libgd from
-source url: "http://fossies.org/linux/www/#{name}-#{version}.tar.gz",
-       md5: "914f27f31ceb46827a322a1bc5165aff"
+source url: "http://fossies.org/linux/www/#{name}-#{version}.tar.bz2",
+       md5: "d3f1a992ac9c550ebc6da89c147f89af"
 
 relative_path "libgd-#{version}"
 

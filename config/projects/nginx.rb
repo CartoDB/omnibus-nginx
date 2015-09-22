@@ -14,7 +14,7 @@ MYUSERNAME = ENV['LOGNAME']
 package_user  "#{MYUSERNAME}"
 package_group "#{MYUSERNAME}"
 
-package_root = ENV['OMNIBUS_PACKAGE_ROOT'] || '/bb/datavis'
+package_root = ENV['OMNIBUS_PACKAGE_ROOT'] || "#{default_root}"
 install_dir "#{package_root}/#{name}"
 
 exclude "**/.git"

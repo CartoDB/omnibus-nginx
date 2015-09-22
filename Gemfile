@@ -1,4 +1,4 @@
-source 'http://rubygems.mirror.dev.bloomberg.com'
+source ENV['OMNIBUS_NGINX_GEMSOURCE'] || 'https://rubygems.org'
 
 gemspec
 
