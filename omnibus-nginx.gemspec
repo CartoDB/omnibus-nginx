@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.name        = "omnibus-nginx"
   s.version     = "1.0.0"
-  s.authors     = ['Bloomberg DataVisualization team']
+  s.authors     = ['CartoDB team']
   s.summary     = %q{Omnibus Nginx web server project}
 
   s.files         = `git ls-files`.split("\n")
@@ -11,5 +11,4 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_dependency 'berkshelf', '~> 3.1.0'
-  s.add_dependency 'omnibus', '~> 4.0'
 end
