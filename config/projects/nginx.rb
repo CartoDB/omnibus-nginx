@@ -5,13 +5,16 @@ homepage "https://github.com/CartoDB/omnibus-nginx/blob/master/README.md"
 build_version Omnibus::BuildVersion.semver
 build_iteration 1
 
-MYUSERNAME = ENV['LOGNAME']
+package_user   ENV['OMNIBUS_PACKAGE_USER']  || ENV['LOGNAME'] || 'root'
+package_group  ENV['OMNIBUS_PACKAGE_GROUP'] || ENV['OMNIBUS_PACKAGE_USER'] || ENV['LOGNAME'] || 'root'
+package_root = ENV['OMNIBUS_PACKAGE_ROOT']  || '/opt'
 
-package_user  "#{MYUSERNAME}"
-package_group "#{MYUSERNAME}"
+build_iteration ENV['OMNIBUS_PROJECT_BUILD_ITERATION'] || 1
 
-package_root = ENV['OMNIBUS_PACKAGE_ROOT'] || "#{default_root}"
 install_dir "#{package_root}/#{name}"
+
+# .rpm and .deb are already compressed so the below compress doesnt help much. 
+# compress :tgz
 
 exclude "**/.git"
 exclude "**/bundler/git"
