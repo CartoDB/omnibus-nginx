@@ -27,11 +27,11 @@ build do
     
     command "./configure" \
       " --prefix=#{install_dir}/embedded" \
-      " --http-client-body-temp-path=/bb/var/cache/nginx/client_temp" \
-      " --http-proxy-temp-path=/bb/var/cache/nginx/proxy_temp" \
-      " --http-fastcgi-temp-path=/bb/var/cache/nginx/fastcgi_temp" \
-      " --http-uwsgi-temp-path=/bb/var/cache/nginx/uwsgi_temp" \
-      " --http-scgi-temp-path=/bb/var/cache/nginx/scgi_temp" \
+      " --http-client-body-temp-path=/var/cache/nginx/client_temp" \
+      " --http-proxy-temp-path=/var/cache/nginx/proxy_temp" \
+      " --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp" \
+      " --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp" \
+      " --http-scgi-temp-path=/var/cache/nginx/scgi_temp" \
       " --with-http_ssl_module" \
       " --with-http_spdy_module" \
       " --with-http_realip_module" \
