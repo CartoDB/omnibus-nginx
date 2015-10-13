@@ -6,6 +6,12 @@ This doesnt exclude some NGINX Plus features like streaming services.
 
 Installation
 ------------
+This omninus packaging does rely on the fakeroot package. Install this via your package manager like so
+
+```shell
+[root@nginx]# apt-get install fakeroot
+```
+
 You must have a sane Ruby 1.9+ environment with Bundler installed. Ensure all
 the required gems are installed:
 
