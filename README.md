@@ -1,7 +1,8 @@
 template Omnibus project
 ========================
 This project creates full-stack platform-specific packages for
-`template`!
+NGINX Plus version 1.9.4. This is tested to work on Redhat and Ubuntu.
+This doesnt exclude some NGINX Plus features like streaming services.
 
 Installation
 ------------
@@ -19,13 +20,16 @@ Usage
 You create a platform-specific package using the `build project` command:
 
 ```shell
-$ bin/omnibus build template
+$ bin/omnibus build nginx
+or
+OMNIBUS_BASE_DIR=/home/foo/mybuildoutput bin/omnibus build nginx
 ```
 
 The platform/architecture type of the package created will match the platform
 where the `build project` command is invoked. For example, running this command
 on a MacBook Pro will generate a Mac OS X package. After the build completes
-packages will be available in the `pkg/` folder.
+packages will be available in the `$OMNIBUS_BASE_DIR/pkg/` folder or your local
+build folder under local/omninus/pkg
 
 ### Clean
 
@@ -33,7 +37,7 @@ You can clean up all temporary files generated during the build process with
 the `clean` command:
 
 ```shell
-$ bin/omnibus clean template
+$ bin/omnibus clean nginx
 ```
 
 Adding the `--purge` purge option removes __ALL__ files generated during the
@@ -41,7 +45,7 @@ build including the project install directory (`/opt/template`) and
 the package cache directory (`/var/cache/omnibus/pkg`):
 
 ```shell
-$ bin/omnibus clean template --purge
+$ bin/omnibus clean nginx --purge
 ```
 
 ### Publish
@@ -93,10 +97,10 @@ section:
 
 ```shell
 $ bundle exec kitchen login ubuntu-1204
-[vagrant@ubuntu...] $ cd template
+[vagrant@ubuntu...] $ cd omnibus-nginx
 [vagrant@ubuntu...] $ bundle install
 [vagrant@ubuntu...] $ ...
-[vagrant@ubuntu...] $ bin/omnibus build template
+[vagrant@ubuntu...] $ bin/omnibus build nginx
 ```
 
 For a complete list of all commands and platforms, run `kitchen list` or
