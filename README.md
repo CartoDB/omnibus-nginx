@@ -1,4 +1,4 @@
-template Omnibus project
+NGINX Plus omnibus build project
 ========================
 This project creates full-stack platform-specific packages for
 NGINX Plus version 1.9.4. This is tested to work on Redhat and Ubuntu.
