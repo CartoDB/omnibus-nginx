@@ -26,10 +26,12 @@ Usage
 You create a platform-specific package using the `build project` command:
 
 ```shell
-$ bin/omnibus build nginx
+$ bin/omnibus build nginx -l unknown
 or
-OMNIBUS_BASE_DIR=/home/foo/mybuildoutput bin/omnibus build nginx
+$ OMNIBUS_BASE_DIR=/home/foo/mybuildoutput bin/omnibus build nginx -l unknown
 ```
+
+"-l unknown" is for maximum spew of build information.
 
 The platform/architecture type of the package created will match the platform
 where the `build project` command is invoked. For example, running this command
@@ -72,6 +74,13 @@ Full help for the Omnibus command line interface can be accessed with the
 ```shell
 $ bin/omnibus help
 ```
+
+NOTE: On Redhat the RPM packager will use the /tmp directory for its temporary working space. We recommend overriding this to a disk area with more space like so
+
+```shell
+$ OMNIBUS_BASE_DIR=/home/foo/mybuildoutput TMPDIR=/my/big/disk/path bin/omnibus build nginx -l unknown
+```
+
 
 Kitchen-based Build Environment
 -------------------------------
