@@ -1,8 +1,9 @@
 NGINX Plus omnibus build project
 ========================
 This project creates full-stack platform-specific packages for
-NGINX Plus version 1.9.4. This is tested to work on Redhat and Ubuntu.
-This doesnt exclude some NGINX Plus features like streaming services.
+NGINX Plus version 1.9.4. This also includes single signon integration via Shibboleth and SAML. Thus you can use your own shibboleth configured identity provider to protect access to your web services via the web server and not have to add custom authentication to your web applications or web services. Shibboleth+NGINX can handle that for you.
+
+This is tested to work on Redhat and Ubuntu. This doesnt exclude some NGINX Plus features like streaming services.
 
 Installation
 ------------
