@@ -12,7 +12,7 @@ This omninus packaging does rely on the fakeroot package. Install this via your 
 [root@nginx]# apt-get install fakeroot
 ```
 
-You must have a sane Ruby 1.9+ environment with Bundler installed. Ensure all
+You must have a sane Ruby 2.0+ environment with Bundler installed. Ensure all
 the required gems are installed:
 
 ```shell
