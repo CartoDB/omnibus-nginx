@@ -77,6 +77,8 @@ build do
         "PERL_PATH"  => "#{install_dir}/embedded/bin/perl"
     )
 
+    configure_command.insert(1,"--build=nginx-plus-extras-shibboleth")
+
     command configure_command.join(" "), env: env
  
     make "-j #{workers}", env: env
