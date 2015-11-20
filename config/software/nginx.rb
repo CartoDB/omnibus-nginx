@@ -64,6 +64,7 @@ end
 
 version "1.9.6" do
   source md5: "f6899825e7a8deadba4948ff84515ad6"
+  configure_command << "--with-http_v2_module"
 end
 
 source url: "http://nginx.org/download/nginx-#{version}.tar.gz"
